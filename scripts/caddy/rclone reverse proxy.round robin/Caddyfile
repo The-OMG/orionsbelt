@@ -1,0 +1,25 @@
+my.gdrive.od:443 {
+     proxy / localhost:10000 localhost:10001 localhost:20028 {
+        policy round_robin
+        transparent
+        health_check /
+    }
+    # Access Logs
+    log $HOME/logs/access-cloud.log
+
+    # Error Logs
+    errors $HOME/logs/error-cloud.log
+
+    # Enable gzip
+    gzip {
+        level 5
+    }
+
+    # Set security headers / custom headers
+    header / {
+        Server "Caddy Server"
+    }
+
+    # TLS
+    tls self_signed
+}

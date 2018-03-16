@@ -1,0 +1,23 @@
+my.local.od:443 {
+tls self_signed
+root $HOME/www
+browse /
+gzip
+    # Access Logs
+    log $HOME/logs/access-alnitak.log
+
+    # Error Logs
+    errors $HOME/logs/error-alnitak.log
+
+    # Enable gzip
+    gzip {
+        level 5
+    }
+
+    # Set security headers / custom headers
+    header / {
+        Server "Caddy Server"
+    }
+    # TLS
+    tls self_signed
+}
