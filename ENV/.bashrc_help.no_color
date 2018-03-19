@@ -1,0 +1,231 @@
+=======================================
+ Command Prompt
+=======================================
+(Day/Date  Time/Secs )-(CPU:Jobs:Connect)-(user[@SSH] : current directory  )-(Size:Count)
+(Mon Jan-1 12:34:56pm)-(CPU 1.2%:3:Net 4)-(root@server:/current/folder/path)-(12M:34)
+> _
+Prompt > Red if root or > Green if normal user
+
+Error codes with descriptions will be shown before (on top of) the prompt if any error occurs:
+(ERROR)-(Exit Code 130)-(Script terminated by Control-C)
+
+=======================================
+ Console Shortcuts
+=======================================
+CTRL-C - Halts the current command
+CTRL-Z - Stops the current command (resume with fg in the foreground and bg in the background)
+CTRL-D - Log out
+CTRL-K - Deletes the line from the position of the cursor to the end of the line
+CTRL-U - Erases the entire line
+CTRL-W - Erases one word in the current line
+
+!! - Repeats the last command
+!$ - Repeats only the argument from the last command
+^find^replace - Repeats the last command but replaces text
+history - Shows your command line history
+!123 - Runs the command associated with the numbers listed in the history above
+mv /path/to/file.{txt,xml} - Brackets repeat the command with comma delimited changes
+\ - Use at the end of a line to continue a multi-line command.
+
+To stack multiple commands on one line:
+&& - Commands separated by a double ampersand means AND and runs multiple commands synchronously with each one running only if the last did not fail.
+& - A single ampersand runs multiple commands asynchronously (at the same time).
+
+=======================================
+ Information
+=======================================
+hlp - Show this help information
+da - Show the date
+ver - Show the current version of the operating system
+checkcommand - Show if a command is aliased, a file, or a built-in command
+cpu - Shows the CPU usage
+topcpu - Show the top 10 CPU processes
+logs - Show all logs in /var/log
+apachelog - View Apache web server logs (requires multitail)
+rot13 - Rot13 conversion
+
+=======================================
+ Searching
+=======================================
+h - Search command line history (also CTRL-S and CTRL-R)
+p - Search running processes
+f - Search filenames in the current folder
+ftext - Searches for text in all files in the current folder
+
+=======================================
+ Folders
+=======================================
+la - Directory listing: show hidden files
+ls - Directory listing: add colors and file type extensions
+lx - Directory listing: sort by extension
+lk - Directory listing: sort by size
+lc - Directory listing: sort by change time
+lu - Directory listing: sort by access time
+lr - Directory listing: recursive ls
+lt - Directory listing: sort by date
+lm - Directory listing: pipe through 'more'
+lw - Directory listing: wide listing format
+ll - Directory listing: long listing format
+labc - Directory listing: alphabetical sort
+lf - Directory listing: files only
+ldir - Directory listing: directories only
+
+.. - go back 1 folder
+... - go back 2 folders
+.... - go back 3 folders
+..... - go back 4 folders
+up - go up a specified number of folders
+bd - change into your previous folder (also cd -)
+cpp - Copy file with a progress bar
+cpg - Copy and go to the directory
+mvg - Move and go to the directory
+mkdirg - Create and go to the directory
+rmd - Remove a directory, all sub folders, and files
+pwd - Show the current directory (not an alias)
+oldpwd - Show the previous directory (not an alias)
+pwdtail - Returns the last 2 fields of the working directory
+
+countfiles - Count all files (recursively) in the current folder
+diskspace - Show how disk space is being used
+folders - Show subfolders and disk space
+folderssort - Show subfolders sorted with disk space
+tree - Show a folder and file tree
+treed - Show a folder tree
+mountedinfo - Show mounted information
+
+home - go to your home folder
+web - Change into Apache web folder
+
+=======================================
+ File Permissions
+=======================================
+000 - Change permissions to no read/write/execute
+644 - Change permissions to read only/write for owner
+666 - Change permissions to read only
+755 - Change permissions to read only and execute/write for owner
+777 - Change permissions to read, write, and execute
+mx - make files executable
+
+=======================================
+ Archives
+=======================================
+extract - Extract any archive(s) (also dtrx from http://brettcsmith.org)
+mktar - Create a tar file
+mkbz2 - Created a bzip2 archive file
+mkgz - Create a gzip archive file
+untar - Extract a tar file
+unbz2 - Extract a bzip2 archive file
+ungz - Extract a gzip archive file
+
+=======================================
+ Network
+=======================================
+netinfo - Show current network information
+whatsmyip - Internal and external IP address lookup
+ipview - Show the number of connections to the web server
+openports - Show open ports
+
+=======================================
+ Configuration
+=======================================
+ebrc - Edit the .bashrc file
+phpconfig - Edit the PHP configuration
+apacheconfig - Edit Apache web server configuration
+mysqlconfig - Edit MySQL database configuration
+
+=======================================
+ Reboot
+=======================================
+rebootsafe - reboot safely
+rebootforce - force reboot
+
+===============================================================================
+===                      Additional Help Information:                       ===
+===============================================================================
+
+=======================================
+ To Delete a Directory and All Contents
+=======================================
+rm -rf [folder]
+
+=======================================
+ To Check Memory Usage
+=======================================
+free
+htop
+top
+
+To List Processes:
+ps aux | grep -i [application]
+
+To Kill a Process:
+kill -9 [process_id] (forced)
+kill -15 [process_id] (graceful)
+
+=======================================
+ Download a File
+=======================================
+wget http://server.com/filename.ext
+
+=======================================
+ Compile and Install From Source
+=======================================
+./configure (may not have this)
+make
+make install
+make clean
+
+=======================================
+ Replace Text in a File
+=======================================
+sed -i 's/[findtext]/[replacetext]/g' [filename]
+
+=======================================
+ Find Out How Much Drive Space is Left
+=======================================
+df -k
+
+=======================================
+ Update and Run Clam AntiVirus
+=======================================
+freshclam - Update clam definitions
+
+clamscan -ir /var/www/html/
+-OR-
+clamscan --recursive=yes --infected --log=/tmp/virus_scan.txt --move=/tmp/quarantine/ --scan-mail=yes --phishing-sigs=yes --phishing-scan-urls=yes /var/www/html/
+-OR-
+clamscan -ir / > /tmp/virus_scan.txt
+
+=======================================
+ View Network Connections
+=======================================
+netstat -anpl | grep :80 | awk {'print $5'} | cut -d":" -f1 | sort | uniq -c | sort -n
+
+=======================================
+ Start/Stop/Restart a service
+=======================================
+/etc/init.d/[service] start
+/etc/init.d/[service] stop
+/etc/init.d/[service] restart
+
+=======================================
+ Cron Job Locations
+=======================================
+/etc/cron.d
+/etc/cron.daily
+/etc/cron.hourly
+/etc/cron.weekly
+/etc/cron.monthly
+
+The cron log is found here:
+nano /var/log/cron
+
+=======================================
+ Startup Configuration
+=======================================
+sudo nano /etc/fstab
+
+=======================================
+ To Change System Security
+=======================================
+sudo nano /etc/sysctl.conf
