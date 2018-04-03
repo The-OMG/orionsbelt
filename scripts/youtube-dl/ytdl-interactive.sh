@@ -30,16 +30,29 @@ echo "$ARCHIVE"
 sleep 5
 
 # youtube-dl
-youtube-dl --verbose --ignore-errors \
+youtube-dl \
+--add-metadata \
+--all-subs \
+--buffer-size 16k \
+--console-title \
+--convert-subs srt \
 --download-archive $ARCHIVE \
---playlist-random \
---retries infinite --fragment-retries infinite --buffer-size 16k \
--o "$YTDLpath/%(uploader)s/%(upload_date)s %(title)s.%(ext)s" \
---no-continue --no-part --fixup \
---write-description --write-info-json \
---write-annotations --write-all-thumbnails --console-title \
---all-subs --convert-subs srt --embed-subs --add-metadata \
+--embed-subs \
 --external-downloader $DOWNLOADER \
 --external-downloader-args "$DOWNLOADER_ARGS" \
---hls-prefer-ffmpeg --prefer-ffmpeg \
+--fixup \
+--fragment-retries infinite \
+--hls-prefer-ffmpeg \
+--ignore-errors \
+--no-continue \
+--no-part \
+-o "$YTDLpath/%(uploader)s/%(upload_date)s_%(title)s.%(ext)s" \
+--playlist-random \
+--prefer-ffmpeg \
+--retries infinite \
+--verbose \
+--write-description \
+--write-info-json \
+--write-annotations \
+--write-all-thumbnails \
 "$URL" | tee --append $LOGFILE
