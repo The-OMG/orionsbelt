@@ -2,9 +2,6 @@
 #Requirements youtube-dl, ffmpeg, axel
 
 # User input
-echo "I need a single word that will be your folder name."
-read -p 'Project Name: ' PROJECT
-echo "Now I need your url that I might be pulling from."
 read -p 'URL: ' URL
 sleep 2
 
@@ -14,6 +11,9 @@ LOGFILE="$YTDLpath/_youtubedl.log"
 ARCHIVE="$YTDLpath/archivedytidlist.txt"
 DOWNLOADER="axel"
 DOWNLOADER_ARGS="-n 15"
+PROJECT="Comedy_Central"
+MSO="gci"
+APU="ogrimm"
 
 # Creates Project folder if you dont have one.
 echo "If ya didnt have a Project folder, ya got one now."
@@ -22,8 +22,8 @@ sleep 2
 
 # Creates inital logfile. | Overwrites existing logfile on every new script run.
 echo "A wild logfile appears!"
-printf 'go go gadget\n' > $LOGFILE
-printf 'go go gadget\n' > $ARCHIVE
+echo 'go go gadget\n' > $LOGFILE
+echo 'go go gadget\n' > $ARCHIVE
 echo "$LOGFILE"
 sleep 1
 echo "$ARCHIVE"
@@ -33,6 +33,8 @@ sleep 5
 youtube-dl \
 --add-metadata \
 --all-subs \
+--ap-mso $MSO \
+--ap-username $APU \
 --buffer-size 16k \
 --console-title \
 --convert-subs srt \
