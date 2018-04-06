@@ -4,7 +4,7 @@
 # User input
 echo "I need a single word that will be your folder name."
 read -p 'Project Name: ' PROJECT
-echo "Now I need your url that I might be pulling from."
+echo "Now I need your URL that I might be pulling from."
 read -p 'URL: ' URL
 sleep 2
 
@@ -15,15 +15,15 @@ ARCHIVE="$YTDLpath/archivedytidlist.txt"
 DOWNLOADER="axel"
 DOWNLOADER_ARGS="-n 15"
 
-# Creates Project folder if you dont have one.
-echo "If ya didnt have a Project folder, ya got one now."
+# Creates Project folder if you don't already have one.
+echo "If ya didn't have a Project folder, ya got one now."
 mkdir -p $HOME/$PROJECT
 sleep 2
 
-# Creates inital logfile. | Overwrites existing logfile on every new script run.
-echo "A wild logfile appears!"
-echo 'go go gadget\n' > $LOGFILE
-echo 'go go gadget\n' > $ARCHIVE
+# Creates initial log-file. | Overwrites existing log-file on every new script run.
+echo "A wild log-file appears!"
+echo 'go go gadget\n' >> $LOGFILE
+echo 'go go gadget\n' >> $ARCHIVE
 echo "$LOGFILE"
 sleep 1
 echo "$ARCHIVE"

@@ -1,9 +1,14 @@
 {
   "ExpandedNodes": [
     "",
-    "\\scripts",
-    "\\scripts\\youtube-dl"
+    "\\filebot",
+    "\\filebot\\groovy",
+    "\\filebot\\schemes",
+    "\\youtube-dl",
+    "\\youtube-dl\\Interactive",
+    "\\youtube-dl\\Non-Interactive",
+    "\\youtube-dl\\Special Request"
   ],
-  "SelectedNode": "\\scripts\\youtube-dl\\ytdl-mso-gci.sh",
+  "SelectedNode": "\\youtube-dl\\Interactive\\ytdl.sh",
   "PreviewInSolutionExplorer": false
 }
