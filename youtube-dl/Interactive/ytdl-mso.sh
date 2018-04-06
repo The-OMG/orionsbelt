@@ -22,8 +22,8 @@ sleep 2
 
 # Creates inital logfile. | Overwrites existing logfile on every new script run.
 echo "A wild logfile appears!"
-echo 'go go gadget\n' > $LOGFILE
-echo 'go go gadget\n' > $ARCHIVE
+echo 'go go gadget\n' >> $LOGFILE
+echo 'go go gadget\n' >> $ARCHIVE
 echo "$LOGFILE"
 sleep 1
 echo "$ARCHIVE"
