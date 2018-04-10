@@ -17,6 +17,10 @@ elif [ -f /etc/bash_completion ]; then
 	. /etc/bash_completion
 fi
 
+# Use bash-completion, if available
+[[ $PS1 && -f /usr/share/bash-completion/bash_completion ]] && \
+    . /usr/share/bash-completion/bash_completion
+
 #######################################################
 # EXPORTS
 #######################################################
@@ -39,7 +43,7 @@ shopt -s histappend
 PROMPT_COMMAND='history -a'
 
 # Allow ctrl-S for history navigation (with ctrl-R)
-stty -ixon
+# stty -ixon
 
 # Ignore case on auto-completion
 # Note: bind used instead of sticking these in .inputrc
@@ -692,3 +696,20 @@ function __setprompt
 	PS4='\[${DARKGRAY}\]+\[${NOCOLOR}\] '
 }
 PROMPT_COMMAND='__setprompt'
+
+# Youtube-dl tab-completion
+
+__youtube-dl()
+{
+    local cur prev opts
+    COMPREPLY=()
+    cur="${COMP_WORDS[COMP_CWORD]}"
+    opts="-h --help --version -U --update -i --ignore-errors -r --rate-limit -R --retries --dump-user-agent --list-extractors --playlist-start --playlist-end --match-title --reject-title --max-downloads -t --title -l --literal -A --auto-number -o --output -a --batch-file -w --no-overwrites -c --continue --no-continue --cookies --no-part --no-mtime --write-description --write-info-json -q --quiet -s --simulate --skip-download -g --get-url -e --get-title --get-thumbnail --get-description --get-filename --get-format --no-progress --console-title -v --verbose -f --format --all-formats --prefer-free-formats --max-quality -F --list-formats --write-srt --srt-lang -u --username -p --password -n --netrc --extract-audio --audio-format --audio-quality -k --keep-video"
+
+    if [[ ${cur} == * ]] ; then
+        COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+        return 0
+    fi
+}
+
+complete -F __youtube-dl youtube-dl
