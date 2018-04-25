@@ -1,0 +1,11 @@
+rclone --no-traverse copy "theeye:Radio" "omg:OMG_share/mirrors-collections/the-eye/Radio" \
+--drive-chunk-size 1G \
+--checksum \
+--ignore-size \
+--exclude **/ripreddit** \
+--exclude **/WorldTracker.org** \
+--transfers 8 \
+--checkers 8 \
+--low-level-retries 20 \
+--retries 20 \
+-vv

@@ -1,0 +1,4 @@
+filebot -script fn:amc --output "$HOME/cloud/orionsbelt-RW/Plex-Media/Movies" --action move --conflict skip -non-strict
+"$HOME/cloud/orionsbelt-RW/Plex-Media/_Incoming/Incoming_Movies" --log-file amc.log --def unsorted=y music=n artwork=y
+--def clean=y --def movieFormat="$HOME/cloud/orionsbelt-RW/Plex-Media/Movies/{plex.tail} ({vf}, {source}, {ac}, {channels}, {vc},
+{group})"

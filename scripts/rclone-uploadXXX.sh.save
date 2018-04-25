@@ -1,0 +1,9 @@
+rclone --no-traverse copy 
+ omg:OMG_share/mirrors-collections/
+good_old_games_collection \
+--drive-chunk-size 128M \
+--drive-use-trash \
+--transfers 8 \
+--checkers 16 \
+--low-level-retries 20 \
+--retries 20 -vv

@@ -1,0 +1,1 @@
+ filebot -script fn:amc --output "$HOME/cloud/share" --action move --conflict skip -non-strict "$HOME/cloud/share/TTN" --log-file amc.log --def unsorted=y music=n artwork=y clean=y deleteAfterExtract=y --db TheTVDB | parallel -j5

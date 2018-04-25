@@ -1,0 +1,1 @@
+filebot -rename -r "/home13/omg/cloud/orionsbelt-RW/Plex-Media/Anime.parse/Space Dandy" --output /home13/omg/cloud/orionsbelt-RW/Plex-Media/Anime --action test --conflict auto --mode interactive --db AniDB -non-strict --def @/home13/omg/orionsbelt/filebot/schemes.txt

@@ -1,6 +1,6 @@
 -script
 fn:amc
-$PWD
+"$PWD"
 --output
 $HOME/plex
 --log-file

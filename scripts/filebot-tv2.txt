@@ -1,0 +1,1 @@
+filebot -rename "$HOME/cloud/share/TTN" --db TheTVDB --output "$HOME/cloud/share" --format "$HOME/cloud/share/TV/{plex.tail}" -non-strict
