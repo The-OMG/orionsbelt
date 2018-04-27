@@ -41,13 +41,6 @@ echo "Now I need your URL that I might be pulling from."
 read -p 'URL: ' URL
 sleep 2
 
-# youtube-dl VARS
-YTDLpath="$HOME/$PROJECT"
-LOGFILE="$YTDLpath/_youtubedl.log"
-ARCHIVE="$YTDLpath/archivedytidlist.txt"
-DOWNLOADER="axel"
-DOWNLOADER_ARGS="-n 15"
-
 # Creates Project folder if you don't already have one.
 echo "If ya didn't have a Project folder, ya got one now."
 mkdir -p $HOME/$PROJECT
@@ -61,7 +54,6 @@ echo "$LOGFILE"
 sleep 1
 echo "$ARCHIVE"
 sleep 5
-
 
 rclone sync $SOURCE $DEST \
 --ignore-checksum \

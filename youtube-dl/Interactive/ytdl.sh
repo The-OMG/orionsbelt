@@ -3,9 +3,9 @@
 
 # User input
 echo "I need a single word that will be your folder name."
-read -p 'Project Name: ' PROJECT
+read -p -r 'Project Name: ' PROJECT
 echo "Now I need your URL that I might be pulling from."
-read -p 'URL: ' URL
+read -p -r 'URL: ' URL
 sleep 2
 
 # youtube-dl VARS
@@ -17,13 +17,13 @@ DOWNLOADER_ARGS="-n 15"
 
 # Creates Project folder if you don't already have one.
 echo "If ya didn't have a Project folder, ya got one now."
-mkdir -p $HOME/$PROJECT
+mkdir -p "$HOME"/"$PROJECT"
 sleep 2
 
 # Creates initial log-file. | Overwrites existing log-file on every new script run.
 echo "A wild log-file appears!"
-echo 'go go gadget\n' >> $LOGFILE
-echo 'go go gadget\n' >> $ARCHIVE
+printf 'go go gadget\n' >>"$LOGFILE"
+printf 'go go gadget\n' >>"$ARCHIVE"
 echo "$LOGFILE"
 sleep 1
 echo "$ARCHIVE"
@@ -55,4 +55,4 @@ youtube-dl \
 --write-info-json \
 --write-annotations \
 --write-all-thumbnails \
-"$URL" | tee --append $LOGFILE
+"$URL" | tee --append "$LOGFILE"
