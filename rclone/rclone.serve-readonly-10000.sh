@@ -1,3 +1,4 @@
+#!/bin/bash
 rclone serve http remote: --addr 127.0.0.1:10000 \
 --stats 30s \
 --read-only \

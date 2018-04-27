@@ -12,7 +12,7 @@ DEST="$1"
 DEST_SUBDIR="DataHoarder"
 
 rc() {
-  rclone sync ${SOURCE}: "${DEST}":${DEST_SUBDIR} \
+  rclone sync ${SOURCE}:${SOURCE_SUBDIR} "${DEST}":${DEST_SUBDIR} \
     --backup-dir=${SOURCE}:${SOURCE_SUBDIR}-archive \
     --checksum \
     --transfers=8 \
@@ -31,6 +31,4 @@ rc() {
     -vvv
   echo "thread complete"
 }
-rc-parallel() {
-  rclone lsf ${SOURCE}:${SOURCE_SUBDIR} | parallel -j4 --joblog="${HOME}/logs/jacktheripper.log" 'rc {}'
-}
+  rclone lsf ${SOURCE}:${SOURCE_SUBDIR} | parallel -j4 --joblog="${HOME}/logs/jacktheripper.log" "rc {}"

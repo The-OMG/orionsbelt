@@ -18,7 +18,7 @@ mir() {
     seq $x | parallel -j4 --joblog --bar --eta \
     "$SMLOADER -q 'FLAC' -d 'single' -p $OUTPUT \
 		"https://www.deezer.com/us/ar/us/artist/{}" "
-    )
+  )
   $ECHO "$mirror" | $LOG
   $ECHO "" | $LOG
   $ECHO "" | $LOG
