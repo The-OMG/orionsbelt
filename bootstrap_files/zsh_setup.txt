@@ -1,0 +1,54 @@
+################################################################################
+############################# BOOTSTRAP NEW SERVER #############################
+################################################################################
+
+## linuxbrew.sh
+## Alternative Installation:
+
+git clone https://github.com/Linuxbrew/brew.git ~/.linuxbrew
+
+# might need to run this command if you get an error:
+# git -C "$(brew --repo homebrew/core)" fetch --unshallow
+
+PATH="$HOME/.linuxbrew/bin:$PATH"
+export MANPATH="$(brew --prefix)/share/man:$MANPATH"
+export INFOPATH="$(brew --prefix)/share/info:$INFOPATH"
+
+################################################################################
+## install zsh environment:
+
+brew install zsh zsh-completions zsh-autosuggestions
+
+################################################################################
+## ZSH theme powerlevel9k:
+## github:
+     https://github.com/bhilburn/powerlevel9k/wiki/Install-Instructions#step-1-install-powerlevel9k
+
+## Install for Oh-My-ZSH:
+##   To install this theme for use in Oh-My-Zsh, clone this repository into
+##   your OMZ custom/themes directory.
+
+git clone https://github.com/bhilburn/powerlevel9k.git ~/.oh-my-zsh/custom/themes/powerlevel9k
+
+## You then need to select this theme in your ~/.zshrc:
+     ZSH_THEME="powerlevel9k/powerlevel9k"
+
+################################################################################
+
+## Install Fonts:
+      git clone https://github.com/ryanoasis/nerd-fonts.git
+
+      brew tap caskroom/fonts
+
+      # might need to run this command if you get an error:
+      # git -C "$(brew --repo caskroom/fonts)" fetch --unshallow
+
+      brew install caskroom/fonts/font-hack-nerd-font
+
+## Fonts:
+##   The Nerd-Fonts project is an effort to create fonts truly tricked out with
+##   as many glyphs as possible. After installing nerd-fonts and configuring
+##   your terminal emulator to use one, configure Powerlevel9k by putting the
+##   following in your ~/.zshrc:
+
+       POWERLEVEL9K_MODE='nerdfont-complete'
