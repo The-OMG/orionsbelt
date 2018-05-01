@@ -1,9 +1,0 @@
-echo "Serving Directory via HTTP" | tee -a $HOME/logs/OMG_share.ORIONGRIMM-rclone.serve10000.log \
-rclone serve http oriongrimm:OMG_share --addr 127.0.0.1:10000 \
-	--allow-other \
-	--stats 30s \
-	--read-only \
-	--drive-shared-with-me \
-	--vfs-cache-mode full \
-	--cache-total-chunk-size 50G \
-	-vv &>>"$HOME/logs/OMG_share.ORIONGRIMM-rclone.serve10000.log" &
