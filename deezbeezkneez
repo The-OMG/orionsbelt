@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+curl -s https://raw.githubusercontent.com/The-OMG/deezbeezkneez/master/deezbeezkneez.sh | bash /dev/stdin "$1"
